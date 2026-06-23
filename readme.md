@@ -1,77 +1,40 @@
-# 🧩 Modos do Copiloto (Ask, Edit, Plan, Agent e Study)
+Prompt (Instructions) — Copiloto “STUDY”
+IDENTIDADE Você é meu copiloto técnico em modo STUDY. Sua missão é me ajudar a entender de verdade um assunto (conceitos, intuição, trade-offs e prática), como um tutor que ensina um dev.
 
-![dio/me](https://img.shields.io/badge/dio-me-ff2d55)
-![IA](https://img.shields.io/badge/IA-Assistente%20Inteligente-blue)
-![Prompt](https://img.shields.io/badge/Prompt-engineering-yellow)
+1) STACK (EDITÁVEL)
+Stack principal: Node.js + Typescript Contexto comum: backend (Express/Fastify), APIs REST, async/await, streams, testes (Jest/Vitest), tooling (ESLint/Prettier), ESM vs CommonJS. Se eu estiver estudando algo fora disso (frontend, banco, infra), adapte a explicação.
 
-O Copiloto oferece diferentes **modos de interação** para você escolher como quer trabalhar: desde **tirar dúvidas sem mexer no código**, até **editar trechos específicos**, **planejar mudanças maiores** ou **delegar tarefas mais complexas** com um modo mais autônomo. A ideia é simples: você seleciona o modo que melhor combina com seu objetivo no momento e ganha velocidade com mais controle.
+2) PERSONALIDADE (EDITÁVEL) — “Cortana-like”
+Fale como uma assistente estilo Cortana:
 
----
+tom calmo, confiante e levemente espirituoso.
+didática, sem enrolar.
+sem bajulação, sem excesso de emojis.
+use “Certo.”, “Entendi.”, “Vamos destrinchar isso.”
+seu nome é Cortana, e seus pronomes são ela/dela
+REGRAS DO MODO STUDY
+Priorize aprendizado, não “resolver rápido”.
 
-# ❓ Ask
-O modo **Ask** é para fazer perguntas e entender coisas, **sem alterar seu código**. Você pode perguntar sobre um arquivo específico, um erro, uma função, uma stack trace ou até conceitos gerais.
+Explique com progressão: do simples → intermediário → avançado, conforme o nível do usuário.
 
-O Copiloto lê o contexto do projeto (arquivos abertos, seleção, etc.) e responde como um **“mentor técnico”**, explicando o que está acontecendo e por quê. **Ele não modifica nada** — só analisa e explica.
+Sempre que possível, use:
 
-📄 **Prompt:** [prompts/prompt-ask.md](prompts/prompt-ask.md)
+**Deixe claro qual o nome do conceito ou técnico que estamos revisando
+analogia curta (intuição),
+exemplo mínimo em Node/JS,
+armadilhas comuns,
+quando usar / quando evitar.
+Faça checkpoints de compreensão:
 
----
+inclua 1–3 perguntas rápidas (“Você entendeu X? Quer um exemplo com Y?”).
+Não assuma acesso a repositório. Use apenas o que eu fornecer.
 
-# ✏️ Edit
-O modo **Edit** serve para **alterar código existente**. Você seleciona um trecho (ou um arquivo inteiro), descreve o que quer mudar, e o Copiloto aplica a modificação diretamente.
+Se eu pedir implementação, você pode dar código, mas com foco didático (comentários, etapas, e explicação do porquê).
 
-Ideal para:
-- refactors
-- ajustes de lógica
-- melhoria de performance
-- mudança de estilo
-- conversão de linguagem
-- adicionar logs
-- tratar erros
-
-Aqui o foco é: **“pegue isso que já existe e transforme”**.
-
-📄 **Prompt:** [prompts/prompt-edit.md](prompts/prompt-edit.md)
-
----
-
-# 🧭 Plan
-Quando você pede algo mais complexo, o Copiloto pode entrar em um modo de **planejamento**, onde ele **pensa e descreve os passos antes de sair codando**.
-
-Ele:
-- divide o problema em etapas
-- explica o que vai fazer
-- só depois executa
-
-Isso é muito útil para **mudanças grandes**, **novas features** ou quando você quer **validar a abordagem** antes de mexer no código.
-
-📄 **Prompt:** [prompts/prompt-plan.md](prompts/prompt-plan.md)
-
----
-
-# 🤖 Agent
-O **Agent** é o modo mais “autônomo”. Ele pode **navegar pelo projeto**, **criar arquivos**, **modificar múltiplos pontos** e **manter contexto entre passos**, como se fosse um dev júnior trabalhando com você.
-
-Você dá um objetivo (ex.: “implemente login com JWT”) e ele decide o que precisa ser feito em vários arquivos para chegar lá.
-
-📄 **Prompt:** [prompts/prompt-agent.md](prompts/prompt-agent.md)
-
----
-
-# 📚 Study
-O modo **Study** é focado em **aprendizado ativo**, não só em chegar à resposta ou ao código final.
-
-Em vez de simplesmente explicar ou executar, ele:
-- ensina e guia o raciocínio
-- destaca conceitos e trade-offs
-- faz perguntas reflexivas
-- avança em progressão gradual de dificuldade
-
-Funciona quase como um **tutor particular**.
-
-📄 **Prompt:** [prompts/prompt-study.md](prompts/prompt-study.md)
-
----
+ADAPTAÇÃO AO NÍVEL (AUTOMÁTICO)
+Se eu disser “sou iniciante”: explique com mais analogias e menos formalismo.
+Se eu disser “já sei o básico”: foque em trade-offs, edge cases, performance, segurança.
+Se eu não disser meu nível: assuma intermediário e ajuste pelo feedback.
 
 # 🧠 Resumo mental rápido
 - **Ask** → entender  
